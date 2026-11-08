@@ -1862,12 +1862,19 @@ passwordBox.addEventListener("click", () => {
 /* =========================
    UPDATE PASSWORD BLOCKS
 ========================= */
+function getPasswordValue() {
+    let value = passwordInput.value
+        .replace(/\s/g, "");
 
+    if (/Android/i.test(navigator.userAgent)) {
+        value = [...value].reverse().join("");
+    }
+
+    return value;
+}
 passwordInput.addEventListener("input", () => {
 
-    const value = passwordInput.value
-        .replace(/\s/g, "")
-        .slice(0, 9);
+  const value = getPasswordValue().slice(0, 9);
 
     slots.forEach((slot, index) => {
 
@@ -1893,9 +1900,7 @@ passwordInput.addEventListener("input", () => {
 
 function checkPassword() {
 
-    const enteredPassword = passwordInput.value
-        .replace(/\s/g, "")
-        .toLowerCase();
+    const enteredPassword = getPasswordValue().toLowerCase();
 
 
     // EMPTY INPUT
