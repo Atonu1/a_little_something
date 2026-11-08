@@ -308,14 +308,19 @@ body {
 
 /* PASSWORD INPUT */
 
+/* PASSWORD INPUT */
+
 #password-input {
     position: absolute;
     width: 1px;
     height: 1px;
     opacity: 0;
     pointer-events: none;
-}
 
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: plaintext;
+}
 
 /* ENTER BUTTON */
 
@@ -1564,15 +1569,17 @@ body {
         </div>
 
 
-        <input
-            type="text"
-            id="password-input"
-            maxlength="20"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-            aria-label="Enter password"
-        >
+      <input
+    type="text"
+    id="password-input"
+    maxlength="20"
+    autocomplete="off"
+    autocapitalize="off"
+    spellcheck="false"
+    dir="ltr"
+    style="direction:ltr; text-align:left; unicode-bidi:bidi-override;"
+    aria-label="Enter password"
+>
 
 
         <button class="enter-button" id="enter-button">
